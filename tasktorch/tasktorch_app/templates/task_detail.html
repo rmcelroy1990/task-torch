@@ -1,0 +1,38 @@
+<!-- task_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ task.title }}</h2>
+<p><strong>Location:</strong> {{ task.location }}</p>
+<p><strong>Budget:</strong> ${{ task.budget }}</p>
+<p><strong>Task Duration:</strong> {{ task.duration }} day(s)</p>
+<p><strong>Date Needed:</strong> {{ task.date }}</p>
+<p>{{ task.description }}</p>
+
+{% if request.user == task.user %}
+  <a href="{% url 'task_edit' task.id %}">Edit</a>
+  <form action="{% url 'task_delete' task.id %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+{% endif %}
+
+<h3>Offers / Comments</h3>
+{% for comment in task.comments.all %}
+  <div class="comment">
+    <p><strong>{{ comment.user.username }}:</strong> {{ comment.text }}</p>
+  </div>
+{% empty %}
+  <p>No offers yet.</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+  <form method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Submit Offer</button>
+  </form>
+{% else %}
+  <p><a href="{% url 'login' %}">Log in</a> to make an offer.</p>
+{% endif %}
+{% endblock %}
