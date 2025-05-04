@@ -10,11 +10,13 @@
 <p>{{ task.description }}</p>
 
 {% if request.user == task.user %}
-  <a href="{% url 'task_edit' task.id %}">Edit</a>
-  <form action="{% url 'task_delete' task.id %}" method="post" style="display:inline;">
+  <a href="{% url 'edit_task' task.id %}">Edit</a>
+  <form action="{% url 'delete_task' task.id %}" method="post" style="display:inline;">
     {% csrf_token %}
     <button type="submit">Delete</button>
   </form>
+  {% else %}
+    <p class="text-muted">Only the task creator can edit or delete this task.</p>"
 {% endif %}
 
 <h3>Offers / Comments</h3>
@@ -26,13 +28,14 @@
   <p>No offers yet.</p>
 {% endfor %}
 
-{% if user.is_authenticated %}
+{% if request.user.is_authenticated and commment_form %}
   <form method="post">
     {% csrf_token %}
     {{ comment_form.as_p }}
-    <button type="submit">Submit Offer</button>
+    <button type="submit" class="btn btn-success">Submit Offer</button>
   </form>
 {% else %}
   <p><a href="{% url 'login' %}">Log in</a> to make an offer.</p>
 {% endif %}
+
 {% endblock %}

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'tasktorch_app',
+    'tasks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -69,6 +69,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tasktorch.wsgi.application'
 
+LOGIN_REDIRECT_URL = 'all_tasks'
+LOGOUT_REDIRECT_URL = ''
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

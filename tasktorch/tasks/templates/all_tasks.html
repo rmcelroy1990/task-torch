@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container my-4">
+    <h1 class="text-center mb-4">All Tasks</h1>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for task in tasks %}
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">{{ task.title }}</h5>
+              <p class="card-text">{{ task.description|truncatewords:20 }}</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Budget:</strong> ${{ task.budget }}</li>
+                <li class="list-group-item"><strong>Location:</strong> {{ task.location }}</li>
+                <li class="list-group-item"><strong>Date Needed:</strong> {{ task.date_needed }}</li>
+              </ul>
+              <a href="{% url 'task_detail' task.id %}" class="btn btn-primary mt-3">View Details</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <p>No tasks available.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+
+{% block content %}
+  <h1>All Tasks</h1>
+  {% for task in tasks %}
+    <div class="task-card">
+      <h3>{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+      <p><strong>Budget:</strong> ${{ task.budget }}</p>
+      <p><strong>Location:</strong> {{ task.location }}</p>
+      <p><strong>Duration:</strong> {{ task.duration }} day(s)</p>
+    </div>
+  {% empty %}
+    <p>No tasks available.</p>
+  {% endfor %}
+{% endblock %} {% endcomment %}
