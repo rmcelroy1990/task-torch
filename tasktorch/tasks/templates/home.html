@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block content %}
-  <div class="homepage-banner">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  
+    <div class="homepage-banner">
     <h1>Welcome to TaskTorch</h1>
     <p> Light up your to-do list by hiring help. Outsource your small business tasks with ease.</p>
     <a href="{% url 'all_tasks' %}" class="btn">Browse Tasks</a>

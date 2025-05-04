@@ -69,8 +69,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tasktorch.wsgi.application'
 
-LOGIN_REDIRECT_URL = 'all_tasks'
-LOGOUT_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'welcome'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases

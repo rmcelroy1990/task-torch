@@ -101,7 +101,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('all_tasks')
+            return redirect('welcome')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
