@@ -36,10 +36,9 @@ As small businesses grow, many entrepreneurs face micro-task overload. I built *
 - Python 3.11
 - Django 5.2
 - PostgreSQL
-- HTML5 + CSS3 (Bootstrap)
+- Bootstrap for styling
 - Django Templates
 - Django Forms + Authentication
-- JavaScript (via Bootstrap Bundle)
 - VS Code + Git + GitHub
 
 ---
@@ -53,7 +52,7 @@ As small businesses grow, many entrepreneurs face micro-task overload. I built *
 
 ---
 
-## 🧭 Next Steps (Stretch Goals)
+## 🧭 Stretch Goals
 
 - 🔍 Add search and filter functionality to All Tasks
 - 💬 Real-time messaging between task posters and responders
