@@ -12,4 +12,5 @@ urlpatterns = [
     path('tasks/comment/', views.add_comment, name='add_comment'),
     path('signup/', views.signup, name='signup'),
     path('welcome/', views.welcome, name='welcome'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
    ]
