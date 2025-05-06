@@ -35,25 +35,3 @@
 
 
 
-
-
-
-
-
-
-{% comment %} {% extends "base.html" %}
-
-{% block content %}
-  <h1>All Tasks</h1>
-  {% for task in tasks %}
-    <div class="task-card">
-      <h3>{{ task.title }}</h3>
-      <p>{{ task.description }}</p>
-      <p><strong>Budget:</strong> ${{ task.budget }}</p>
-      <p><strong>Location:</strong> {{ task.location }}</p>
-      <p><strong>Duration:</strong> {{ task.duration }} day(s)</p>
-    </div>
-  {% empty %}
-    <p>No tasks available.</p>
-  {% endfor %}
-{% endblock %} {% endcomment %}

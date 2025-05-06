@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .models import TaskPost, Comment
 # from .models import Tasks
 from .forms import TaskPostForm, CommentForm
@@ -12,6 +12,10 @@ from django.views.generic.edit import CreateView
 
 def home(request):
     return render(request, 'home.html')
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'logout.html' )
 
 
 def task_detail(request, task_id):
