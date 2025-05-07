@@ -9,6 +9,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView
+import logging
+logger = logging.getLogger(__name__)
 
 def home(request):
     return render(request, 'home.html')
@@ -107,7 +109,7 @@ def signup(request):
             login(request, user)
             return redirect('welcome')
         else:
-            print(form.errors.as_json())  # <--- Add this line
+            logger.error(form.errors.as_json())
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
