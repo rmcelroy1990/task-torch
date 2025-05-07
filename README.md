@@ -13,7 +13,7 @@ As small businesses grow, many entrepreneurs face micro-task overload. I built *
 ## 🛠 Getting Started with **<b> 🔥 TaskTorch </b>**
 
 ### 🔗 Deployed App
-[Link]()
+[Link](https://task-torch-app-111b46ac6045.herokuapp.com/)
 
 ### 📑 Planning Documents
 - [Wireframes (Figma/Canva)]([https://www.canva.com/])
