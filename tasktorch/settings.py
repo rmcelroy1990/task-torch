@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('imadeitthroughthebootcampandcouldntbemoreproud', "django
 if not 'ON_HEROKU' in os.environ:
     DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['task-torch-app-111b46ac6045.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
