@@ -106,9 +106,12 @@ def signup(request):
             user = form.save()
             login(request, user)
             return redirect('welcome')
+        else:
+            print(form.errors.as_json())  # <--- Add this line
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
 
 @login_required
 def welcome(request):
